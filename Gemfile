@@ -3,8 +3,18 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+# Use devise
+gem 'devise'
+
+# Use cancancan
+gem 'cancancan'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
+# Use rails-controller-testing for aserting template
+gem 'rails-controller-testing'
+# Use rspec for testing
+gem 'rspec'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
@@ -29,8 +39,15 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+  # Use to preview mail in the browser
+  gem 'letter_opener'
+  # Use to detect n+1 problems
+  gem 'bullet'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  # Use rspec-rails
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do

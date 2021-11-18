@@ -1,0 +1,43 @@
+<div class="app">
+  <div class="category__content">  
+    <header class="header">
+      <nav class="nav">
+        <span></span>
+        <span>CATEGORIES</span>
+        <%= link_to "Log out", destroy_user_session_path, class: "action", method: :delete %>
+      </nav>
+    </header>
+    <ul class="category__list">
+      <% if @groups.empty? %>
+        <div class="empty">
+          No categories for now
+        </div>
+      <% else %>
+        <% @groups.each do |group| %>
+            <a href="#" class="category__link">
+              <li class="category__item">
+                <div class="outer">
+                  <div class="image">
+                    <%= image_tag group.icon, alt: "image" %>
+                  </div>
+                  <div class="inner">
+                    <div class="top">
+                      <div>
+                        <h3 class="title"><%= group.name.capitalize %></h3>
+                        <span class="date"><%= group.created_at.strftime('%-d %h %Y') %></span>
+                      </div>
+                      <p class="amount">$<%= group.treaties.sum(:amount) %></p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </a>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="cta__container">
+    <%= link_to "Add New", new_category_path, class: "add__btn" %>
+  </div>
+</div>

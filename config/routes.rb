@@ -7,5 +7,13 @@ Rails.application.routes.draw do
     sign_up: 'account',
     sign_out: 'seeyousoon'
   }
-  root to: 'home#index'
+  authenticated :user do
+    root 'categories#index', as: :authenticated_root
+  end
+  
+  unauthenticated :user do
+    root to: 'home#index'
+  end
+
+  resources :categories, only: [:index, :show, :new, :create]
 end

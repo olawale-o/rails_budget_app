@@ -13,23 +13,26 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Petemoss&display=swap');
+
 @font-face {
-    font-family: 'ProximaBold';
-    src: url('../fonts/ProximaBold.otf');
+  font-family: 'ProximaBold';
+  src: url('ProximaBold.otf');
 }
 
 @font-face {
-    font-family: 'ProximaLight';
-    src: url('../fonts/ProximaLight.otf');
+  font-family: 'ProximaLight';
+  src: url('ProximaLight.otf');
 }
 
 @font-face {
-    font-family: 'ProximaRegular';
-    src: url('../fonts/ProximaRegular.otf');
+  font-family: 'ProximaRegular';
+  src: url('ProximaRegular.otf');
 }
+
 @font-face {
-    font-family: 'ProximaThin';
-    src: url('../fonts/ProximaThin.otf');
+  font-family: 'ProximaThin';
+  src: url('ProximaThin.otf');
 }
 
 * {
@@ -48,3 +51,34 @@ body {
   background-color: #fff;
 }
 
+::placeholder {
+  color: #ccc;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fields {
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.input {
+  display: block;
+  font-size: 1.8rem;
+  padding: 1rem 0.5rem;
+  width: 100%;
+  margin-left: auto;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.footer__links {
+  text-align: center;
+}
+
+.forgot__link {
+  color: #ccc;
+}

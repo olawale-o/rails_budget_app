@@ -5,7 +5,7 @@
         <%= link_to categories_path, class: "back__link" do %>
           <i class='bx bx-arrow-back'></i>
         <% end %>
-        <span>Detials</span>
+        <span>Details</span>
         <%= link_to "Log out", destroy_user_session_path, class: "action", method: :delete %>
       </nav>
     </header>
@@ -33,6 +33,6 @@
   </div>
 
   <div class="cta__container">
-    <%= link_to "Add Transaction", new_category_path, class: "add__btn" %>
+    <%= link_to "Add Transaction", new_treaty_path, class: "add__btn" %>
   </div>
 </div>

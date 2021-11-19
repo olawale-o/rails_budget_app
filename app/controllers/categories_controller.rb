@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @groups = current_user.categories.includes(:treaties)
+    @groups = current_user.my_categories_and_treaties
   end
 
   def new
@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
 
   def show
     @group = Category.find(params[:id])
-    @treaties = @group.treaties.includes(:user)
+    @treaties = @group.treaties_with_user
   end
 
   def create

@@ -17,7 +17,7 @@ class Category < ApplicationRecord
   private
 
   def remove_whitespace
-    self.name = name.strip if name.nil?
-    self.icon = icon.strip if icon.nil?
+    self.name = name.strip unless name.nil?
+    self.icon = icon.strip unless icon.nil?
   end
 end

@@ -19,7 +19,7 @@ class User < ApplicationRecord
   private
 
   def remove_whitespace
-    self.email = email.strip if email.nil?
-    self.name = name.strip if name.nil?
+    self.email = email.strip unless email.nil?
+    self.name = name.strip unless name.nil?
   end
 end

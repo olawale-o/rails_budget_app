@@ -28,7 +28,7 @@
 
 .outer {
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 80px 1fr;
   width: 100%;
   padding: 1rem;
   background: #fff;
@@ -41,7 +41,7 @@
 
 .inner {
   margin-top: 0.8rem;
-  margin-left: 5rem;
+  margin-left: 2rem;
 }
 
 .top {
@@ -85,4 +85,41 @@
   justify-content: center;
   font-size: 1.5rem;
   padding: 2rem 1rem;
+}
+
+.category__panel {
+  width: 95%;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.category__card {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  padding: 0.5rem;
+  align-items: center;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 2rem;
+}
+
+hr {
+  margin: 2rem 1rem;
+}
+
+.treaty__item {
+  padding: 0.5rem 1rem;
+}
+
+.treaty__card-name {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.time {
+  margin-bottom: 1rem;
+  color: #ccc;
 }

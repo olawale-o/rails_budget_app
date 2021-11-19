@@ -7,6 +7,11 @@ class CategoriesController < ApplicationController
     @group = Group.new
   end
 
+  def show
+    @group = Group.find(params[:id])
+    @treaties = @group.treaties.includes(:user)
+  end
+
   def create
     @group = Group.new(category_params)
     current_user.groups << @group
@@ -19,8 +24,8 @@ class CategoriesController < ApplicationController
     end
   end
 
-  private 
-  
+  private
+
   def category_params
     params.require(:group).permit(:name, :icon)
   end

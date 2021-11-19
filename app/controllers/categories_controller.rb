@@ -1,20 +1,22 @@
 class CategoriesController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    @groups = current_user.groups.includes(:treaties)
+    @groups = current_user.categories.includes(:treaties)
   end
 
   def new
-    @group = Group.new
+    @group = Category.new
   end
 
   def show
-    @group = Group.find(params[:id])
+    @group = Category.find(params[:id])
     @treaties = @group.treaties.includes(:user)
   end
 
   def create
-    @group = Group.new(category_params)
-    current_user.groups << @group
+    @group = Category.new(category_params)
+    current_user.categories << @group
     if @group.save
       flash[:notice] = 'Category created successfully'
       redirect_to categories_path
@@ -27,6 +29,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:group).permit(:name, :icon)
+    params.require(:category).permit(:name, :icon)
   end
 end

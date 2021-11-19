@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Categories', type: :request do
-  login_user
-  describe 'GET /index' do
+  describe 'GET /index when user is logged in' do
+    login_user
     before(:each) do
       @food = create(:category, name: 'Food', user: @user)
       @garri = create(:category, name: 'Garri', user: @user, icon: Faker::Company.logo)
@@ -24,6 +24,47 @@ RSpec.describe 'Categories', type: :request do
       expect(response.body).to include('Food')
       expect(response.body).to include('Garri')
       expect(response.body).to include("$#{@garri.treaties.sum(:amount)}")
+    end
+  end
+
+  describe 'GET /index user is not logged in' do
+    before(:each) { get categories_path }
+
+    it 'should return http status code 302' do
+      expect(response).to have_http_status(302)
+    end
+
+    it 'should redirect to login page' do
+      expect(response).to redirect_to(new_user_session_path)
+    end
+  end
+
+  describe 'GET /show' do
+    login_user
+    before(:each) do
+      @food = create(:category, name: 'Yam', user: @user)
+      @treaty1 = create(:treaty, name: 'Treaty Yam 1', user: @user)
+      @treaty2 = create(:treaty, name: 'Treaty Yam 2', user: @user)
+      @food.treaties.push(@treaty1, @treaty2)
+      get category_path(@food)
+    end
+
+    it 'should return http status code 200' do
+      expect(response).to have_http_status(200)
+    end
+
+    it 'should render correct view' do
+      assert_template 'categories/show'
+    end
+
+    it 'should include category and its transactions' do
+      expect(response.body).to include('Yam')
+      expect(response.body).to include("$#{@food.treaties.sum(:amount)}")
+      @food.treaties.each do |treaty|
+        expect(response.body).to include(treaty.name)
+        expect(response.body).to include("$#{treaty.amount}")
+        expect(response.body).to include(treaty.created_at.strftime('%-d %h %Y'))
+      end
     end
   end
 end

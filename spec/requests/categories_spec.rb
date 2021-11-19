@@ -4,7 +4,7 @@ RSpec.describe 'Categories', type: :request do
   describe 'GET /index when user is logged in' do
     login_user
     before(:each) do
-      @food = create(:category, name: 'Food', user: @user)
+      @food = create(:category, name: 'Food', user: @user, icon: Faker::LoremFlickr.image(search_terms: ['politics']))
       @garri = create(:category, name: 'Garri', user: @user, icon: Faker::Company.logo)
       @treaty1 = create(:treaty, name: 'Treaty1', user: @user)
       @treaty2 = create(:treaty, name: 'Treaty2', user: @user)
@@ -42,7 +42,7 @@ RSpec.describe 'Categories', type: :request do
   describe 'GET /show' do
     login_user
     before(:each) do
-      @food = create(:category, name: 'Yam', user: @user)
+      @food = create(:category, name: 'Yam', user: @user, icon: Faker::LoremFlickr.image(search_terms: ['business']))
       @treaty1 = create(:treaty, name: 'Treaty Yam 1', user: @user)
       @treaty2 = create(:treaty, name: 'Treaty Yam 2', user: @user)
       @food.treaties.push(@treaty1, @treaty2)

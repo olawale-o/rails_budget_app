@@ -1,7 +1,7 @@
 <%= form_with url: treaties_path, model: @treaty do |f| %>
   <header class="header">
     <nav class="nav">
-      <%= link_to request.env['HTTP_REFERER'], class: "back__link" do %>
+      <%= link_to go_back, class: "back__link" do %>
         <i class='bx bx-arrow-back'></i>
       <% end %>
       <span>NEW TRANSACTION</span>

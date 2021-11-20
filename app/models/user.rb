@@ -16,6 +16,10 @@ class User < ApplicationRecord
     categories.includes(:treaties)
   end
 
+  def categories_by_name
+    categories.order(:name)
+  end
+
   private
 
   def remove_whitespace

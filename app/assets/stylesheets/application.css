@@ -91,3 +91,13 @@ a {
 .forgot__link {
   color: #ccc;
 }
+
+#error_explanation {
+  text-align: center;
+  font-size: 1.45rem;
+  color: red;
+}
+
+.flash__message {
+  text-align: center;
+}

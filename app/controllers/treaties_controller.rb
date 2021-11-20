@@ -12,7 +12,7 @@ class TreatiesController < ApplicationController
       flash[:notice] = 'Treaty created successfully'
       redirect_to category_path(@treaty.categories.first.id)
     else
-      flash[:error] = 'Treaty not created'
+      flash[:alert] = 'Treaty not created'
       render :new
     end
   end

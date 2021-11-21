@@ -8,7 +8,7 @@ RSpec.describe Treaty, type: :model do
       expect(treaty).to_not be_valid
     end
 
-    it 'amount should be present' do
+    it 'email should be present' do
       treaty.amount = nil
       expect(treaty).to_not be_valid
     end

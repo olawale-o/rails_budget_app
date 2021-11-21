@@ -11,7 +11,7 @@ RSpec.describe 'Splash', type: :request do
     end
 
     it 'should render correct view' do
-      assert_template 'home/index'
+      assert_template 'splash/index'
     end
 
     it 'should include list of categories created by user' do

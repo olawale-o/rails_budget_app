@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   
   unauthenticated :user do
-    root to: 'home#index'
+    root to: 'splash#index'
   end
 
   resources :categories, only: [:index, :show, :new, :create]

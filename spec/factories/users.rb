@@ -5,7 +5,6 @@ FactoryBot.define do
     email
     password { 'password' }
     password_confirmation { 'password' }
-    confirmed_at { Date.today }
 
     factory :with_categories do
       transient do

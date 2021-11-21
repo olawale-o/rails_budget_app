@@ -39,6 +39,40 @@ RSpec.describe 'Categories', type: :request do
     end
   end
 
+  describe 'GET /new' do
+    login_user
+    before(:each) { get new_category_path }
+
+    it 'should return http status code 200' do
+      expect(response).to have_http_status(200)
+    end
+
+    it 'should render correct view' do
+      assert_template 'categories/new'
+    end
+  end
+
+  describe 'GET /create' do
+    login_user
+    let(:valid_attributes) { { name: 'Category spec', icon: Faker::LoremFlickr.image(search_terms: ['books']) } }
+    let(:invalid_attributes) { { name: '', icon: '' } }
+    context 'with valid parameters' do
+      it 'should create a new category and redirect to categories_path' do
+        post categories_path, params: { category: valid_attributes }
+        expect(response).to redirect_to(categories_path)
+        follow_redirect!
+        expect(response.body).to include 'Category created successfully'
+      end
+    end
+    context 'without valid parameters' do
+      it 'should not create a new category' do
+        post categories_path, params: { category: invalid_attributes }
+        expect(response).to render_template(:new)
+        expect(response.body).to include('Name can&#39;t be blank')
+      end
+    end
+  end
+
   describe 'GET /show' do
     login_user
     before(:each) do

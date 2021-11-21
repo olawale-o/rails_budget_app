@@ -12,16 +12,16 @@
 
   <div class="fields">
     <div class="field">
-      <%= f.text_field :name,  { autofocus: true, autocomplete: "name", class: "input", placeholder: "Full name" } %>
+      <%= f.text_field :name,  { autofocus: true, autocomplete: "name", class: "input", placeholder: "Full name", required: true } %>
     </div>
     <div class="field">
-      <%= f.email_field :email,  { autofocus: true, autocomplete: "email", class: "input", placeholder: "Email" } %>
+      <%= f.email_field :email,  { autofocus: true, autocomplete: "email", class: "input", placeholder: "Email" , required: true} %>
     </div>
     <div class="field">
-      <%= f.password_field :password, { autocomplete: "new-password", class: "input", placeholder: "Password" } %>
+      <%= f.password_field :password, { autocomplete: "new-password", class: "input", placeholder: "Password" , required: true} %>
     </div>
     <div class="field">
-      <%= f.password_field :password_confirmation, { autocomplete: "new-password", class: "input", placeholder: "Confirm Password" } %>
+      <%= f.password_field :password_confirmation, { autocomplete: "new-password", class: "input", placeholder: "Confirm Password" , required: true} %>
     </div>
   </div>
 <% end %>

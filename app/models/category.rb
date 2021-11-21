@@ -8,7 +8,7 @@ class Category < ApplicationRecord
   before_validation :remove_whitespace
 
   def treaties_with_user
-    treaties.includes(:user)
+    treaties
   end
 
   def total_amount

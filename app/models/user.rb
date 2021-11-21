@@ -13,7 +13,7 @@ class User < ApplicationRecord
   before_validation :remove_whitespace
 
   def my_categories_and_treaties
-    categories.includes(:treaties)
+    categories
   end
 
   def categories_by_name

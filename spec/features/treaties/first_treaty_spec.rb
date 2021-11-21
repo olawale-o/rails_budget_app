@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.feature 'Treaty New Page', type: :feature do
   login_user
   background do
-    @treaty = create(:treaty, name: 'Taken', user: @user)
     @bag = create(:category, name: 'Food', user: @user, icon: Faker::LoremFlickr.image(search_terms: ['bags']))
+    @treaty = create(:treaty, name: 'Taken', user: @user, categories: [@bag])
     visit(new_treaty_path)
   end
 

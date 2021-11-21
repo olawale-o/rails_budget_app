@@ -6,8 +6,8 @@ RSpec.describe 'Categories', type: :request do
     before(:each) do
       @food = create(:category, name: 'Food', user: @user, icon: Faker::LoremFlickr.image(search_terms: ['politics']))
       @garri = create(:category, name: 'Garri', user: @user, icon: Faker::Company.logo)
-      @treaty1 = create(:treaty, name: 'Treaty1', user: @user)
-      @treaty2 = create(:treaty, name: 'Treaty2', user: @user)
+      @treaty1 = create(:treaty, name: 'Treaty1', user: @user, categories: [@food, @garri])
+      @treaty2 = create(:treaty, name: 'Treaty2', user: @user, categories: [@food, @garri])
       @garri.treaties.push(@treaty1, @treaty2)
       get categories_path
     end
@@ -77,8 +77,8 @@ RSpec.describe 'Categories', type: :request do
     login_user
     before(:each) do
       @food = create(:category, name: 'Yam', user: @user, icon: Faker::LoremFlickr.image(search_terms: ['business']))
-      @treaty1 = create(:treaty, name: 'Treaty Yam 1', user: @user)
-      @treaty2 = create(:treaty, name: 'Treaty Yam 2', user: @user)
+      @treaty1 = create(:treaty, name: 'Treaty Yam 1', user: @user, categories: [@food])
+      @treaty2 = create(:treaty, name: 'Treaty Yam 2', user: @user, categories: [@food])
       @food.treaties.push(@treaty1, @treaty2)
       get category_path(@food)
     end

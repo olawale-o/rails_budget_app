@@ -1,0 +1,27 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <header class="header">
+    <nav class="nav">
+      <%= link_to root_path, class: "back__link" do %>
+        <i class='bx bx-arrow-back'></i>
+      <% end %>
+      <span>LOGIN</span>
+      <%= f.submit "Log in", class: "action" %>
+    </nav>
+  </header>
+  <div class="flash__message">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
+  <div class="fields">
+    <div class="field">
+      <%= f.email_field :email, { autofocus: true, autocomplete: "email", class: "input", placeholder: "Email", required: true } %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, { autocomplete: "current-password", class: "input", placeholder: "Password", required: true } %>
+    </div>
+  </div>
+<% end %>
+<div class="footer__links">
+  <%= render "devise/shared/links" %>
+</div>

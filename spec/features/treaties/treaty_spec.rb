@@ -17,7 +17,7 @@ RSpec.feature 'Treaty New Page', type: :feature do
         select @food.name, from: 'treaty_category_ids'
         select @garri.name, from: 'treaty_category_ids'
       end
-      click_button 'Add'
+      click_button 'Save'
       expect(current_path).to eq category_path(@food.id)
       expect(page.has_content?('Treaty created successfully')).to be_truthy
     end

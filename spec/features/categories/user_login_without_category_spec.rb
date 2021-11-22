@@ -12,8 +12,8 @@ RSpec.feature 'Category Index Page', type: :feature do
         expect(page).to have_content('No categories for now')
       end
       it 'should see add new link' do
-        expect(find_link('Add New').visible?).to be true
-        click_link('Add New')
+        expect(find_link('ADD A NEW CATEGORY').visible?).to be true
+        click_link('ADD A NEW CATEGORY')
         expect(page.current_path).to eq(new_category_path)
       end
     end

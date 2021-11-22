@@ -15,7 +15,7 @@ RSpec.feature 'Treaty New Page', type: :feature do
         fill_in 'treaty[amount]', with: '10'
         select @bag.name, from: 'treaty_category_ids'
       end
-      click_button 'Add'
+      click_button 'Save'
       expect(current_path).to eq treaties_path
       expect(page).to have_content('Name already taken by you')
     end

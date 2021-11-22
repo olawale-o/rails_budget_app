@@ -16,7 +16,7 @@ RSpec.feature 'Treaty New Page', type: :feature do
         fill_in 'treaty[amount]', with: ''
         select '', from: 'treaty_category_ids', match: :first
       end
-      click_button 'Add'
+      click_button 'Save'
       expect(current_path).to eq treaties_path
       expect(page).to have_content("Name can't be blank")
       expect(page).to have_content("Amount can't be blank")

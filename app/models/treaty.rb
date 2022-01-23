@@ -5,4 +5,6 @@ class Treaty < ApplicationRecord
   validates :amount, presence: true, numericality: { greater_than: 0 }
   validates :categories, presence: true
   has_and_belongs_to_many :categories
+
+  scope :total_amount, -> { sum(:amount) }
 end

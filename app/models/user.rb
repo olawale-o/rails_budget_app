@@ -16,7 +16,7 @@ class User < ApplicationRecord
   end
 
   def categories_by_name
-    categories.order(:name)
+    categories.order_by_name
   end
 
   private

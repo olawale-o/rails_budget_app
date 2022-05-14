@@ -10,7 +10,7 @@
 
 ### Live link
 
-[Link](https://morning-stream-82344.herokuapp.com/)
+[Link](https://afternoon-peak-82060.herokuapp.com/)
 
 # Screenshot
 ![screenshot](https://github.com/olawale-o/rails_budget_app/blob/develop/app/assets/images/screenshot.png?raw=true")

@@ -7,12 +7,14 @@ class Category < ApplicationRecord
 
   before_validation :remove_whitespace
 
+  scope :order_by_name, -> { order(:name) }
+
   def treaties_with_user
     treaties
   end
 
   def total_amount
-    treaties.sum(:amount)
+    treaties.total_amount
   end
 
   private

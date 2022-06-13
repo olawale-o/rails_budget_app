@@ -7,7 +7,7 @@ class Category < ApplicationRecord
 
   before_validation :remove_whitespace
 
-  scope :order_by_name, -> { order(:name) }
+  scope :order_by, ->(col) { order(col) }
 
   def treaties_with_user
     treaties

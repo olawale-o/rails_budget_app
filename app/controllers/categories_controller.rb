@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @groups = current_user.my_categories_and_treaties
+    @groups = current_user.items_by
   end
 
   def new

@@ -11,12 +11,8 @@ class User < ApplicationRecord
 
   before_validation :remove_whitespace
 
-  def my_categories_and_treaties
-    categories
-  end
-
-  def categories_by_name
-    categories.order_by_name
+  def items_by(col = :created_at)
+    categories.order_by(col)
   end
 
   private

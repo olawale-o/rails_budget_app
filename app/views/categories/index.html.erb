@@ -12,14 +12,14 @@
       <p class="alert"><%= alert %></p>
     </div>
     <ul class="category__list">
-      <% if @groups.empty? %>
-        <div class="empty">
-          No categories for now
-        </div>
-      <% else %>
+      <% unless @groups.empty? %>
         <% @groups.each do |group| %>
           <%= render partial: 'group_card', locals: { group: group } %>
         <% end %>
+      <% else %>
+        <div class="empty">
+          No categories for now
+        </div>
       <% end %>
     </ul>
   </div>

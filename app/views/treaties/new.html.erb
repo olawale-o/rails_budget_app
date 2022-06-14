@@ -19,7 +19,7 @@
     </div>
     <div class="field">
       <%= f.label :category_id, "Choose Category (select atleast one)" %>
-      <%= f.collection_select :category_ids, current_user.categories_by_name, :id, :name, {}, { class: "input", multiple: true, required: true} %>
+      <%= f.collection_select :category_ids, current_user.items_by, :id, :name, {}, { class: "input", multiple: true, required: true} %>
     </div>
   </div>
 <% end %>

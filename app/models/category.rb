@@ -3,7 +3,7 @@ class Category < ApplicationRecord
   has_and_belongs_to_many :treaties
   validates :name, presence: true, uniqueness: { scope: :user_id, message: 'already taken by you' },
                    length: { maximum: 50 }
-  validates :icon, presence: true, uniqueness: true
+  validates :icon, presence: true, uniqueness: { scope: :user_id, message: 'already taken by you' }
 
   before_validation :remove_whitespace
 
